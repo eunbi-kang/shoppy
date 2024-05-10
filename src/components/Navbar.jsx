@@ -7,7 +7,7 @@ import User from './User';
 
 export default function Navbar() {
     const [user, setUser] = useState();
-    useEffect(()=> {
+    useEffect(() => {
         onUserStateChange(user => {
             console.log(user);
             setUser(user);
@@ -23,12 +23,12 @@ export default function Navbar() {
             <nav className='flex items-center gap-4 font-semibold'>
                 <Link to='/products'>Products</Link>
                 <Link to='/carts'>Carts</Link>
-                <Link to='/products/new' className='text-2xl'>
+                {user && user.isAdmin && (<Link to='/products/new' className='text-2xl'>
                     <BsFillPencilFill />
-                </Link>
+                </Link>)}
                 {user && <User user={user} />}
-                {!user && <button onClick={login}>Login</button > }
-                {user && <button onClick={logout}>Logout</button > }
+                {!user && <button onClick={login}>Login</button >}
+                {user && <button onClick={logout}>Logout</button >}
             </nav>
         </header>
     );
