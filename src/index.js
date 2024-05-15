@@ -25,7 +25,7 @@ const router = createBrowserRouter([
         <NewProduct /></ProtectedRoute>) },
       { path: '/products/:id', element: <ProductDetail /> },
       {
-        path: '/carts', element: (<ProtectedRoute>
+        path: '/carts', element: (<ProtectedRoute> 
           <MyCart /></ProtectedRoute>) 
       },
     ]
