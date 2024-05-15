@@ -29,7 +29,8 @@ const router = createBrowserRouter([
           <MyCart /></ProtectedRoute>) 
       },
     ]
-
+    
+    // Protected Router 추가
   }
 ], {
   basename: process.env.PUBLIC_URL
