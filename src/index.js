@@ -13,7 +13,7 @@ import AllProducts from './pages/AllProducts';
 import NewProduct from './pages/NewProduct';
 import ProtectedRoute from './pages/ProtectedRoute';
 
-const router = createBrowserRouter([
+const router = createBrowserRouter([ 
   {
     path: '/',
     element: <App />,
