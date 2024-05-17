@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { uploadImage } from '../api/uploader';
 import Button from '../components/ui/Button';
 
 export default function NewProduct() {
@@ -12,11 +13,14 @@ export default function NewProduct() {
         }
         setProduct((product) => ({ ...product, [name]: value }));
     };
+    
     const handleSubmit = (e) => {
         e.preventDefault();
-        // 제품의 사진을 Cloudinary에 업로드 하고 URL을 획득
-        // Firebase에 새로운 제품을 추가함
-
+        uploadImage(file)
+        .then (url => {
+            console.log(url);
+            // Firebase에 새로운 제품을 추가함
+        })
     };
     return (
     <section>
