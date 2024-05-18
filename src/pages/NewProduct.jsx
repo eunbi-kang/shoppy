@@ -37,11 +37,11 @@ export default function NewProduct() {
         });
     };
     return (
-    <section>
-        <h2>새로운 제품 등록</h2>
-        {success && <p>✅{success}</p>}
-        {file && <img src={URL.createObjectURL(file)} alt='local file' />} 
-        <form onSubmit={handleSubmit}>
+    <section className='w-full text-center'>
+        <h2 className='text-2xl font-bold my-4'>새로운 제품 등록</h2>
+        {success && <p className='my-2'>✅{success}</p>}
+        {file && <img className='w-96 mx-auto mb-2' src={URL.createObjectURL(file)} alt='local file' />} 
+        <form className='flex flex-col px-12' onSubmit={handleSubmit}>
             <input type="file" accept='image/*' name='file' required
                 onChange={handleChange} />
             <input 
