@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import {v4 as uuid} from 'uuid';
+import { v4 as uuid } from 'uuid';
 import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged } from "firebase/auth";
 import { getDatabase, ref, set, get } from 'firebase/database';
 
@@ -53,14 +53,25 @@ async function adminUser(user) {
     });
 }
 
-/* 새로운 제품을 추가하는 Login (Product, ImageURL) */
+/* 새로운 제품을 추가하는 Logic (Product, ImageURL) */
 export async function addNewProduct(product, image) {
   const id = uuid();
   return set(ref(database, `products/${uuid()}`), {
-    ...product, 
+    ...product,
     id,
     price: parseInt(product.price),
     image,
     options: product.options.split(','),
   })
+}
+
+/* Firebase에서 제품의 정보를 가져와는 Logic */
+export async function getProducts() {
+  return get(ref(database, 'products')) //
+    .then(snapshot => {
+      if (snapshot.exists()) {
+        return Object.values(snapshot.val());
+      }
+      return [];
+    })
 }
