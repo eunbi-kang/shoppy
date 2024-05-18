@@ -1,6 +1,7 @@
 import { initializeApp } from "firebase/app";
+import {v4 as uuid} from 'uuid';
 import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged } from "firebase/auth";
-import { getDatabase, ref, child, get } from 'firebase/database';
+import { getDatabase, ref, set, get } from 'firebase/database';
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_APIKEY,
@@ -39,9 +40,8 @@ export function onUserStateChange(callback) {
   });
 }
 
+/* User가 Admin 권한을 가지고 있는지 확인하는 Logic (isAdmin : true / false) */
 async function adminUser(user) {
-  // 2. 사용자가 어드민 권한을 가지고 있는지 확인!
-  // 3. {...user, isAdmin: true/false}
   return get(ref(database, 'admins')) //
     .then((snapshot) => {
       if (snapshot.exists()) {
@@ -53,3 +53,14 @@ async function adminUser(user) {
     });
 }
 
+/* 새로운 제품을 추가하는 Login (Product, ImageURL) */
+export async function addNewProduct(product, image) {
+  const id = uuid();
+  set(ref(database, `products/${uuid()}`), {
+    ...product, 
+    id,
+    price: parseInt(product.price),
+    image,
+    options: product.options.split(','),
+  })
+}
