@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { v4 as uuid } from 'uuid';
 import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged } from "firebase/auth";
-import { getDatabase, ref, set, get } from 'firebase/database';
+import { getDatabase, ref, set, get, remove } from 'firebase/database';
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_APIKEY,
@@ -74,4 +74,23 @@ export async function getProducts() {
       }
       return [];
     })
+}
+
+/* Firebase에서 장바구니 목록 정보를 가지고 오는 Logic */
+export async function getCart(userId) {
+  return get(ref(database, `carts/${userId}`)) //
+  .then(snapshot => {
+    const items = snapshot.val() || {};
+    return Object.values(items);
+    });
+}
+
+/* Cart에 제품을 Add / Update 하는 Logic */
+export async function addOrUpdateToCart(userId, product) {
+  return set(ref(database, `carts/${userId}/${product.id}`), product);
+}
+
+/* Cart에 제품을 Delete하는 Logic */
+export async function removeFromCart(userId, productId) {
+  return remove(ref(database, `carts/${userId}/${productId}`));
 }

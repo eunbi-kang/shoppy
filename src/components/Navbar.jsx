@@ -5,7 +5,7 @@ import { BsFillPencilFill } from 'react-icons/bs'
 // import { login, logout, onUserStateChange } from '../api/firebase';
 import User from './User';
 import Button from './ui/Button';
-import { useAuthContext } from './context/AuthContext';
+import { useAuthContext } from '../context/AuthContext';
 import { ClipLoader } from 'react-spinners';
 
 const getIsLoggedIn = () => Boolean(localStorage.getItem('isLoggedIn')) || false;
@@ -13,9 +13,6 @@ const getIsLoggedIn = () => Boolean(localStorage.getItem('isLoggedIn')) || false
 export default function Navbar() {
     const {user, isLoading, login, logout } = useAuthContext();
     console.log(user);
-    // console.log(login);
-    // console.log(logout);
-    
     return (
         <>
         {/* {user &&  */}
