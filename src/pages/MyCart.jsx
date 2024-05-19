@@ -5,4 +5,3 @@ export default function MyCart() {
         <div>MyCart</div>
     );
 }
-

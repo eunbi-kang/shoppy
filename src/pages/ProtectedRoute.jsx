@@ -16,4 +16,3 @@ export default function ProtectedRoute({children, requireAdmin}) {
     // 조건에 맞지 않으면 / 상위 경로로 이동!
     // 조건에 맞는 경우에만 전달된 children을 보여줌
 }
-
