@@ -8,4 +8,3 @@ export default function User({user : {photoURL, displayName}}) {
         </div>
     );
 }
-

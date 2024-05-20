@@ -7,6 +7,7 @@ import User from './User';
 import Button from './ui/Button';
 import { useAuthContext } from '../context/AuthContext';
 import { ClipLoader } from 'react-spinners';
+import CartStatus from './CartStatus';
 
 const getIsLoggedIn = () => Boolean(localStorage.getItem('isLoggedIn')) || false;
 
@@ -24,7 +25,7 @@ export default function Navbar() {
                 <nav className='flex items-center gap-4 font-semibold'>
                     <Link to='/products'>Products</Link>
                     {isLoading && (<ClipLoader color="#F96162" />)}
-                    {user && (<Link to='/carts'>Carts</Link>)}
+                    {user && (<Link to='/carts'><CartStatus /></Link>)}
                     {user && user.isAdmin && (
                         <Link to='/products/new' className='text-2xl'>
                             <BsFillPencilFill />
