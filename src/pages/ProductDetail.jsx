@@ -26,7 +26,7 @@ export default function ProductDetail() {
         <div className='w-full basis-5/12 flex flex-col p-4'>
           <h2 className='text-3xl font-bold py-2'>{title}</h2>
           <p className='text-2xl font-bold py-2  border-b border-gray-400'>
-            ₩{price.toLocaleString()}
+            ₩ {price.toLocaleString()}
           </p>
           <p className='py-4 text-lg'>{description}</p>
           <div className='flex items-center'>
