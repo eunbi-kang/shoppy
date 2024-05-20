@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/shoppy/static/css/main.4cafe2a2.css",
-    "main.js": "/shoppy/static/js/main.ed733564.js",
+    "main.js": "/shoppy/static/js/main.2672794c.js",
     "static/js/453.c588fd93.chunk.js": "/shoppy/static/js/453.c588fd93.chunk.js",
     "static/media/banner.jpg": "/shoppy/static/media/banner.5e21e4a2a6a1486dd390.jpg",
     "index.html": "/shoppy/index.html",
     "main.4cafe2a2.css.map": "/shoppy/static/css/main.4cafe2a2.css.map",
-    "main.ed733564.js.map": "/shoppy/static/js/main.ed733564.js.map",
+    "main.2672794c.js.map": "/shoppy/static/js/main.2672794c.js.map",
     "453.c588fd93.chunk.js.map": "/shoppy/static/js/453.c588fd93.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4cafe2a2.css",
-    "static/js/main.ed733564.js"
+    "static/js/main.2672794c.js"
   ]
 }
