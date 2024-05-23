@@ -16,7 +16,7 @@ export default function useProducts() {
         onSuccess: () => {
             queryClient.invalidateQueries({queryKey: 'products'});
         }
-    })
+})
 
     return { productsQuery, addProduct };
 }
