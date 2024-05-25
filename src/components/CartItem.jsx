@@ -5,9 +5,9 @@ import useCart from '../hooks/useCart';
 
 const ICON_CLASS = 'transition-all cursor-pointer hover:text-brand hover:scale-105 mx-1';
 export default function CartItem({ product,
-    product: { id, image, title, option, quantity, price }}) {
-        const { addOrUpdateItem , removeItem } = useCart();
-        const handleMinus = () => {
+    product: { id, image, title, option, quantity, price } }) {
+    const { addOrUpdateItem, removeItem } = useCart();
+    const handleMinus = () => {
         if (quantity < 2) return;
         addOrUpdateItem.mutate({ ...product, quantity: quantity - 1 });
     }

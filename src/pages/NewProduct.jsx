@@ -23,15 +23,17 @@ export default function NewProduct() {
         e.preventDefault();
         setIsUploading(true);
         uploadImage(file) //
-        .then ((url) => {
-            addProduct.mutate({product, url}, {onSuccess: ()=> {
-                setSuccess('성공적으로 제품이 추가되었습니다.');
-                setTimeout(()=> {
-                    setSuccess(null);
-                }, 4000);
-            }})
-            
-            console.log(url);
+            .then((url) => {
+                addProduct.mutate({ product, url }, {
+                    onSuccess: () => {
+                        setSuccess('성공적으로 제품이 추가되었습니다.');
+                        setTimeout(() => {
+                            setSuccess(null);
+                        }, 4000);
+                    }
+                })
+
+                console.log(url);
 
             })
             .finally(() => {
