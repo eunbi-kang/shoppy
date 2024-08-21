@@ -33,7 +33,7 @@ export default function NewProduct() {
                     }
                 })
 
-                console.log(url);
+                // console.log(url);
 
             })
             .finally(() => {

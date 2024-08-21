@@ -13,7 +13,6 @@ const getIsLoggedIn = () => Boolean(localStorage.getItem('isLoggedIn')) || false
 
 export default function Navbar() {
     const {user, isLoading, login, logout } = useAuthContext();
-    console.log(user);
     return (
         <>
         {/* {user &&  */}
